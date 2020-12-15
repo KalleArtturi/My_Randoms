@@ -1,0 +1,48 @@
+import random
+min = 2
+max = 11
+mycards = []
+dealercards = []
+
+
+def Bust():
+    if sum(mycards) >= 21:
+        print("bust")
+
+
+def More_cards():
+    if sum(mycards) <= 21:
+        print("L15: do you want more?")
+
+
+while len(dealercards) != 2:
+    dealercards.append(random.randint(min, max))
+    if len(dealercards) == 2:
+        print("L21: dealer has", dealercards[0:1])
+
+while len(mycards) != 2:
+    mycards.append(random.randint(min, max))
+    if len(mycards) == 2:
+        print("L26: you have", mycards)
+print("L27: do you want more?")
+
+more = input()
+
+if u"yes" in more:
+    mycards.append(random.randint(min, max))
+    print(f"you have, {mycards}")
+    Bust()
+    More_cards()
+else:
+    print(f"L37: dealer has {dealercards}")
+
+print("do you want more?")
+
+more = input()
+if "yes" in more:
+    mycards.append(random.randint(min, max))
+    print("you have", mycards)
+    Bust()
+    More_cards()
+else:
+    print("dealer has", dealercards)
